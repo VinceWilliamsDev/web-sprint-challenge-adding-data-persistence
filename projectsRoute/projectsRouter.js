@@ -14,6 +14,26 @@ router.post('/', (req, res) => {
         })
 })
 
+router.post('/resources', (req, res) => {
+    db.addResource(req.body)
+        .then(ids => {
+            res.json({id: ids})
+        })
+        .catch(err => {
+            res.status(500).json({error: err.message})
+        })
+})
+
+router.post('/tasks', (req, res) => {
+    db.addTask(req.body)
+        .then(ids => {
+            res.json({id: ids})
+        })
+        .catch(err => {
+            res.status(500).json({error: err.message})
+        })
+})
+
 router.get('/', (req, res) => {
     db.findProjects()
         .then(projects => {
@@ -21,5 +41,25 @@ router.get('/', (req, res) => {
         })
         .catch(err => {
             res.status(500).json({error: err.message})
+        })
+})
+
+router.get('/resources', (req, res) => {
+    db.findResources()
+        .then(resources => {
+            res.json({resources})
+        })
+        .catch(err => {
+            res.status(500).json({error: error.message})
+        })
+})
+
+router.get('/tasks', (req, res) => {
+    db.findTasks()
+        .then(tasks => {
+            res.json({tasks})
+        })
+        .catch(err => {
+            res.status(500).json({error: error.message})
         })
 })
