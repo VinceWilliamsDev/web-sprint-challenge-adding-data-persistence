@@ -8,10 +8,11 @@ module.exports = {
       filename: './data.projects.db3'
     },
     migrations: {
-      directory: './data/migrations/migrations.js',
+      directory: './data/migrations',
     },
     seeds: {
-      directory: './data/seeds/seeds.js'
-    }
+      directory: './data/seeds'
+    },
+    useNullAsDefault: true
   }
 }
